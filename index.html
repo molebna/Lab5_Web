@@ -1,0 +1,314 @@
+﻿<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Erdwark</title>
+
+  <style type="text/css">
+
+    .main {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      grid-template-areas:
+        "div1 div1 div1"
+        "div2 div3 div4"
+        "div2 div5 div4"
+        "div2 div6 div6";
+      grid-template-columns: 15% 60% 25%;
+      grid-template-rows: 10% 55% 15% 20%;
+    }
+
+    * {
+      border-spacing: 0;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+    }
+
+    a {
+      color: black;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    h2 {
+      font-size: 2em;
+    }
+
+    h3 {
+      font-size: 1.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    .main {
+      width: 100%;
+      height: 100%;
+      border-spacing: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .div1 {
+      grid-area: div1;
+      border: 2px dotted white;
+    }
+
+    .div2 {
+      grid-area: div2;
+      border: 2px dotted white;
+      padding: 80px 10px;
+      line-height: 50px;
+    }
+
+    .div3 {
+      grid-area: div3;
+      background-color: #8360603d;
+      border: 2px dotted white;
+      padding: 0px 10px 10px 10px;
+    }
+
+    .div4 {
+      grid-area: div4;
+    }
+
+    .div5 {
+      grid-area: div5;
+      background-color: #8360602f;
+      border: 2px dotted white;
+      display: grid;
+      place-items: center;
+    }
+
+    .div6 {
+      grid-area: div6;
+      background-color: #b2b2b260;
+      border: 2px dotted white;
+      padding: 0px 10px 10px 10px;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div class="main">
+      <div class="div1" style="background-image: url('https://drive.google.com/uc?id=1-7NyaG7N2-nu0WgTO5ZXcfWFKvACOjYb'); vertical-align: middle; text-align: center; ">
+        <table width="100%">
+          <tr>
+            <td width="20%"></td>
+            <td width="60%" style="text-align: center;">
+              <h1 style="line-height: 80px; margin: 0;">NEWS</h1>
+            </td>
+            <td class="x" width="30%" style="text-align: center;">
+              <p>The best content for you (x)</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="div2" id="div2" style="text-align: center; ">
+        <h2>Menu</h2>
+        <h3>MAIN 1</h3>
+        <h3>MAIN 2</h3>
+        <h3>MAIN 3</h3>
+        <h3>World News<br></h3>
+        <h3>Other News<br></h3>
+        <h3>Personality Test<br><br></h3>
+        <p>Left-alignment for:<br></p>
+
+        <div style="line-height: 30px; font-size: 1.2em;">
+          <label>
+            <input type="radio" id="1" name="radios" value="1" checked />
+            None<br>
+          </label>
+          <label>
+            <input type="radio" id="2" name="radios" value="2" />
+            Menu<br>
+          </label>
+          <label>
+            <input type="radio" id="3" name="radios" value="3" />
+            Newsbox Picasso<br>
+          </label>
+          <label>
+            <input type="radio" id="4" name="radios" value="4" />
+            Human image<br>
+          </label>
+        </div>
+      </div>
+
+      <div class="div3" id="div3" style="text-align: center; ">
+        <p>
+          <br />
+          A Picasso masterpiece entitled “Femme à la montre” is expected to fetch more than $120 million when
+          it goes up for auction this fall. The 1932 oil painting will take center-stage at a two-day event at
+          Sotheby’s in New York in November, when the collection of Emily Fisher Landau goes on sale.The piece
+          depicts Picasso’s lover and “golden muse”
+          Marie-Thérèse Walter, who featured in many of his portraits.
+          According to the auction house, the portrait is from one of the most prolific years of the Spanish
+          artist’s career, which was the subject of an entire exhibition organized by the Musée Picasso in Paris
+          and London’s Tate Modern in 2018.
+          In a statement announcing the sale, Julian Dawes, Sotheby’s head of Impressionist & Modern Art for the
+          Americas, said: “Picasso’s ‘Femme à la Montre’ is a masterpiece by every measure. Painted in 1932—Picasso’s
+          ‘annus mirabilis’—it is full of joyful, passionate abandon yet at the same time it is utterly considered
+          and resolved.”<br />
+          Picasso first met Walter in Paris in 1927 when she was 17 years old and he was still married to his first
+          wife, Olga Khokhlova, a Russian-Ukrainian ballet dancer. Walter would become the inspiration for some of
+          his most sought-after canvases, drawings and sculptures.<br />
+          As time went on, Picasso found it increasingly difficult to hide his feelings for Walter from his work—something
+          that became clear during his first large-scale retrospective and finally ended his marriage.<br />
+          The artist painted “Femme à la montre” in August 1932, soon after the retrospective at the Galerie Georges
+          Petit in Paris ended.<br />
+          According to Sotheby’s, “the sense of release from keeping secrets about his affair seem to have spilled out
+          onto this extraordinary canvas, in which he gives full painterly rein to new-found freedoms, drenching the
+          painting in strong primary colors and beautiful forms, while at the same time paying careful attention to every
+          small detail, creating a composition that is both intensely complex and deeply harmonious.”
+        </p>
+        <p id="writeArea"></p>
+        <form id="numberForm">
+          <label for="numberInput"><br />Введіть число:</label>
+          <input type="text" id="numberInput" name="numberInput" />
+          <button type="button" onclick="reverseNumber()">Перевернути</button>
+        </form>
+      </div>
+
+      <div class="div4" id="div4" style="text-align: center;">
+        <img src="https://drive.google.com/uc?id=17Y-wCGKF6W2p_0Qe7wC8wXzdvnms7KIi" width="350" height="600" />
+      </div>
+
+      <div class="div5">
+        <img src="https://drive.google.com/uc?id=1mpnnBUAMaf_4ONiex75ILbRPrigcc-Ud" width="150" height="70" />
+      </div>
+
+      <div class="div6">
+        <table>
+          <tr>
+            <td width="70%">
+              <p style="margin: 5px;">
+                <br />
+                Australia has set the date for its first referendum in 24 years as polls suggest the government is
+                on course for failure unless it can reverse declining support.
+                On October 14, more than 17 million registered voters across the country will vote on whether to
+                change the constitution to recognize the land’s original inhabitants through a First Nations
+                advisory group with a direct line to government.
+                “On that day, every Australian will have a once in a generation chance to bring our country
+                together and to change it for the better,” said Prime Minister Anthony Albanese on Wednesday.
+              </p>
+            </td>
+            <td class="y" width="30%" style="text-align: center;">
+              <p>Thanks for reading! (y)</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <script>
+
+    // 1. -------------------------------------------------
+
+    var elementX = document.querySelector('.x');
+    var elementY = document.querySelector('.y');
+
+    var textX = elementX.textContent;
+    var textY = elementY.textContent;
+
+    elementX.textContent = textY;
+    elementY.textContent = textX;
+
+    // 2. -------------------------------------------------
+
+    var base1 = 12;
+    var base2 = 21;
+    var height = 16;
+
+    function calculateTrapezoidArea(base1, base2, height) {
+      var area = ((base1 + base2) / 2) * height;
+      return area;
+    }
+
+    var area = calculateTrapezoidArea(base1, base2, height);
+
+    var p = document.getElementById('writeArea');
+
+    if (p) {
+      var text = '<br \>Площа трапеції: ' + area;
+      p.innerHTML = text;
+    }
+
+    // 3. -------------------------------------------------
+
+    function reverseNumber() {
+      var numberInput = document.getElementById('numberInput');
+      var originalNumber = numberInput.value;
+
+      var reversedNumber = parseInt(originalNumber.toString().split('').reverse().join(''));
+
+      document.cookie = 'reversedNumber=' + reversedNumber;
+
+      alert('Original Number: ' + originalNumber + '\nReversed Number: ' + reversedNumber);
+
+      var cookies = document.cookie;
+      if (cookies.includes('reversedNumber')) {
+        var form = document.getElementById('numberForm');
+        form.style.display = 'none';
+
+        if (confirm('Data found in cookies. Do you want to keep it?')) {
+          // Код для завантаження даних з cookies і виведення їх
+        } else {
+          document.cookie = 'reversedNumber=; expires=Thu, 01 Jan 2024 00:00:00 UTC';
+          location.reload();
+        }
+      }
+    }
+
+    // 4. -------------------------------------------------
+
+    var selectedRadioIndex = localStorage.getItem("selectedRadioIndex");
+
+    var division2 = document.querySelector('#div2');
+    var division3 = document.querySelector('#div3');
+    var division4 = document.querySelector('#div4');
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+
+    function applyAlignment(index) {
+      if (index === 0) {
+        division2.style.textAlign = "center";
+        division3.style.textAlign = "center";
+        division4.style.textAlign = "center";
+      } else if (index === 1) {
+        division2.style.textAlign = "left";
+        division3.style.textAlign = "center";
+        division4.style.textAlign = "center";
+      } else if (index === 2) {
+        division2.style.textAlign = "center";
+        division3.style.textAlign = "left";
+        division4.style.textAlign = "center";
+      } else if (index === 3) {
+        division2.style.textAlign = "center";
+        division3.style.textAlign = "center";
+        division4.style.textAlign = "left";
+      }
+    }
+
+    if (selectedRadioIndex !== null) {
+      var index = parseInt(selectedRadioIndex, 10);
+      radioButtons[index].checked = true;
+      applyAlignment(index);
+    }
+
+    radioButtons.forEach((radioButton, index) => {
+      radioButton.addEventListener('click', () => {
+        localStorage.setItem("selectedRadioIndex", index);
+        applyAlignment(index);
+      });
+    });
+
+    // 5. -------------------------------------------------
+
+
+
+  </script>
+</body>
+</html>
