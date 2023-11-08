@@ -238,6 +238,20 @@
     }
 
     // 3. -------------------------------------------------
+    function getCookie(name) {
+      return document.cookie.split(';').some(c => {
+        return c.trim().startsWith(name + '=');
+      });
+    }
+
+    function deleteookie(name, path, domain) {
+      if (get_cookie(name)) {
+        document.cookie = name + "=" +
+          ((path) ? ";path=" + path : "") +
+          ((domain) ? ";domain=" + domain : "") +
+          ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+      }
+    }
 
     function reverseNumber() {
       var numberInput = document.getElementById('numberInput');
@@ -248,18 +262,20 @@
       document.cookie = 'reversedNumber=' + reversedNumber;
 
       alert('Original Number: ' + originalNumber + '\nReversed Number: ' + reversedNumber);
+    }
 
-      var cookies = document.cookie;
-      if (cookies.includes('reversedNumber')) {
-        var form = document.getElementById('numberForm');
-        form.style.display = 'none';
+    var cookies = document.cookie;
+    if (cookies.includes('reversedNumber')) {
 
-        if (confirm('Data found in cookies. Do you want to keep it?')) {
-          // Код для завантаження даних з cookies і виведення їх
-        } else {
-          document.cookie = 'reversedNumber=; expires=Thu, 01 Jan 2024 00:00:00 UTC';
-          location.reload();
-        }
+      var form = document.getElementById('numberForm');
+      form.style.display = 'none';
+
+      var reversedNumber = getCookie("reversedNumber");
+      if (confirm("Data found in cookies: reversed number = " + reversedNumber + "\nDo you want to keep it?")) {
+        alert("There is data in cookies. Please, reload this page");
+      } else {
+        document.cookie = 'reversedNumber=; expires=Thu, 01 Jan 1980 00:00:00 UTC';
+        location.reload();
       }
     }
 
