@@ -15,7 +15,7 @@
         "div2 div5 div4"
         "div2 div6 div6";
       grid-template-columns: 15% 60% 25%;
-      grid-template-rows: 10% 55% 15% 20%;
+      grid-template-rows: 10% 57% 10% 23%;
     }
 
     * {
@@ -137,6 +137,13 @@
             Human image<br>
           </label>
         </div>
+
+        <div id="linksDiv2">
+          <a href="#" onfocus="addListItem('listsDiv2', 1)">Add Item</a>
+          <button type="button" onclick="saveList('listsDiv2')">Save list and replace div`s content</button>
+        </div>
+        <div id="listsDiv2"></div>
+
       </div>
 
       <div class="div3" id="div3" style="text-align: center; ">
@@ -166,12 +173,20 @@
           painting in strong primary colors and beautiful forms, while at the same time paying careful attention to every
           small detail, creating a composition that is both intensely complex and deeply harmonious.”
         </p>
+
         <p id="writeArea"></p>
         <form id="numberForm">
-          <label for="numberInput"><br />Введіть число:</label>
+          <label for="numberInput"><br />Input number:</label>
           <input type="text" id="numberInput" name="numberInput" />
-          <button type="button" onclick="reverseNumber()">Перевернути</button>
+          <button type="button" onclick="reverseNumber()">Reverse</button>
         </form>
+
+        <div id="linksDiv3">
+          <a href="#" onfocus="addListItem('listsDiv3', 1)"><br />Add Item</a>
+          <button type="button" onclick="saveList('listsDiv3')">Save list and replace div`s content</button>
+        </div>
+        <div id="listsDiv3"></div>
+
       </div>
 
       <div class="div4" id="div4" style="text-align: center;">
@@ -194,7 +209,7 @@
                 change the constitution to recognize the land’s original inhabitants through a First Nations
                 advisory group with a direct line to government.
                 “On that day, every Australian will have a once in a generation chance to bring our country
-                together and to change it for the better,” said Prime Minister Anthony Albanese on Wednesday.
+                together and to change it for the better,” said Prime Minister Anthony Albanese on Wednesday.<br />
               </p>
             </td>
             <td class="y" width="30%" style="text-align: center;">
@@ -202,6 +217,13 @@
             </td>
           </tr>
         </table>
+
+        <div id="linksDiv6">
+          <a href="#" onfocus="addListItem('listsDiv6', 1)">Add Item</a>
+          <button type="button" onclick="saveList('listsDiv6')">Save list and replace div`s content</button>
+        </div>
+        <div id="listsDiv6"></div>
+
       </div>
   </div>
   <script>
@@ -233,11 +255,12 @@
     var p = document.getElementById('writeArea');
 
     if (p) {
-      var text = '<br \>Площа трапеції: ' + area;
+      var text = '<br \>Trapezoid area: ' + area;
       p.innerHTML = text;
     }
 
     // 3. -------------------------------------------------
+
     function getCookie(cname) {
       let name = cname + "=";
       let ca = document.cookie.split(';');
@@ -251,15 +274,6 @@
         }
       }
       return "";
-    }
-
-    function deleteookie(name, path, domain) {
-      if (get_cookie(name)) {
-        document.cookie = name + "=" +
-          ((path) ? ";path=" + path : "") +
-          ((domain) ? ";domain=" + domain : "") +
-          ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
-      }
     }
 
     function reverseNumber() {
@@ -332,7 +346,99 @@
 
     // 5. -------------------------------------------------
 
+    document.addEventListener('DOMContentLoaded', function () {
 
+      function createNumberedList(containerId, startNumber) {
+        var container = document.getElementById(containerId);
+
+        // Create a new numbered list
+        var newList = document.createElement('ol');
+
+        // Populate the list with items
+        for (var i = startNumber; i < startNumber + 5; i++) {
+          var listItem = document.createElement('li');
+          listItem.textContent = 'Item ' + i;
+          newList.appendChild(listItem);
+        }
+
+        // Clear existing lists
+        container.innerHTML = '';
+
+        // Append the new list
+        container.appendChild(newList);
+      }
+
+      function addListItem(containerId, startNumber) {
+        var container = document.getElementById(containerId);
+
+        // Find the existing list or create a new one
+        var existingList = container.querySelector('ol') || document.createElement('ol');
+
+        // Find the last item number in the list
+        var lastItemNumber = container.querySelectorAll('li').length + startNumber;
+
+        // Create a new list item
+        var listItem = document.createElement('li');
+        listItem.textContent = 'Item ' + (lastItemNumber + 1);
+
+        // Append the new item to the list
+        existingList.appendChild(listItem);
+
+        // Clear existing lists
+        container.innerHTML = '';
+
+        // Append the updated list
+        container.appendChild(existingList);
+      }
+
+      function saveList(containerId) {
+        var container = document.getElementById(containerId);
+
+        var existingList = container.querySelector('ol');
+
+        if (existingList) {
+          var listHTML = existingList.outerHTML;
+
+          localStorage.setItem(containerId, listHTML);
+        }
+      }
+
+      // Attach click event listeners for div2
+      var linksDiv2 = document.getElementById('linksDiv2');
+      linksDiv2.addEventListener('click', function (event) {
+        event.preventDefault();
+        addListItem('listsDiv2', 0);
+      });
+
+      // Attach click event listeners for div3
+      var linksDiv3 = document.getElementById('linksDiv3');
+      linksDiv3.addEventListener('click', function (event) {
+        event.preventDefault();
+        addListItem('listsDiv3', 0);
+      });
+
+      var linksDiv6 = document.getElementById('linksDiv6');
+      linksDiv6.addEventListener('click', function (event) {
+        event.preventDefault();
+        addListItem('listsDiv6', 0);
+      });
+
+      var saveButtonDiv2 = document.getElementById('linksDiv2').querySelector('button');
+      saveButtonDiv2.addEventListener('click', function () {
+        saveList('listsDiv2');
+      });
+
+      var saveButtonDiv3 = document.getElementById('linksDiv3').querySelector('button');
+      saveButtonDiv3.addEventListener('click', function () {
+        saveList('listsDiv3');
+      });
+
+      var saveButtonDiv6 = document.getElementById('linksDiv6').querySelector('button');
+      saveButtonDiv6.addEventListener('click', function () {
+        saveList('listsDiv6');
+      });
+
+    });
 
   </script>
 </body>
