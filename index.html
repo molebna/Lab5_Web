@@ -386,8 +386,13 @@
         var listItems = [];
         var list = document.getElementById(listId).querySelector('ol');
 
+        var i = 0;
         list.childNodes.forEach(function (item) {
-          listItems.push(item.textContent);
+          var divListFromLocalStorage = localStorage.getItem(listId);
+          var divListSize = divListFromLocalStorage ? JSON.parse(divListFromLocalStorage).length : 0;
+          if (i < divListSize) listItems.push(item.textContent.slice(0, -6));
+          else listItems.push(item.textContent);
+          i = i + 1;
         });
 
         saveList(listId, listItems);
