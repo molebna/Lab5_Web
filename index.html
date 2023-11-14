@@ -1,6 +1,7 @@
 ﻿<html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1">
   <title>Erdwark</title>
 
   <style type="text/css">
@@ -28,10 +29,12 @@
 
     a {
       color: black;
+      font-size: 16px;
     }
 
     h1 {
       font-size: 46px;
+      line-height: 80px;
     }
 
     h2 {
@@ -50,6 +53,7 @@
       display: list-item;
       list-style-position: inside;
       line-height: 20px;
+      font-size: 16px;
     }
 
 
@@ -64,6 +68,9 @@
     .div1 {
       grid-area: div1;
       border: 2px dotted white;
+      background-image: url('https://drive.google.com/uc?id=1-7NyaG7N2-nu0WgTO5ZXcfWFKvACOjYb');
+      vertical-align: middle;
+      text-align: center;
     }
 
     .div2 {
@@ -71,6 +78,7 @@
       border: 2px dotted white;
       padding: 80px 10px;
       line-height: 50px;
+      text-align: center;
     }
 
     .div3 {
@@ -78,10 +86,13 @@
       background-color: #8360603d;
       border: 2px dotted white;
       padding: 0px 10px 10px 10px;
+      text-align: center;
     }
 
     .div4 {
       grid-area: div4;
+      justify-content: center;
+      align-items: center;
     }
 
     .div5 {
@@ -99,17 +110,97 @@
       padding: 0px 10px 10px 10px;
     }
 
+    .radioButtons {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 1080px) {
+      .main {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-areas:
+          "div1 div1 div1"
+          "div2 div3 div4"
+          "div2 div5 div4"
+          "div2 div6 div6";
+        grid-template-columns: 25% 55% 20%;
+        grid-template-rows: 5% 67% 5% 23%;
+      }
+
+      * {
+        font-size: 8px;
+      }
+
+      a {
+        font-size: 10px;
+      }
+
+      h1 {
+        font-size: 20px;
+        line-height: 20px;
+        margin: 5px 0px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+
+      h3 {
+        font-size: 12px;
+        line-height: 20px;
+      }
+
+      p {
+        font-size: 8px;
+        line-height: 14px;
+      }
+
+      li {
+        font-size: 10px;
+      }
+
+      .div2 {
+        padding: 80px 2px;
+      }
+
+      .div4 {
+        display: flex; /* Використовуємо flex-контейнер */
+        align-items: center; /* Вирівнюємо елементи по центру по вертикалі */
+      }
+
+      .div4 img {
+        max-width: 250px; /* Задаємо максимальну ширину для зображення */
+        width: 100%; /* Забезпечуємо адаптивність ширини */
+        height: auto; /* Автоматично встановлюється висота для збереження пропорцій */
+      }
+
+      .div5 img {
+        max-height: 25px; /* Задаємо максимальну ширину для зображення */
+        width: auto; /* Автоматично встановлюється висота для збереження пропорцій */
+      }
+
+      .radioButtons {
+        font-size: 6px;
+      }
+
+      input[type="radio"] {
+        -ms-transform: scale(0.3);
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+      }
+    }
   </style>
 
 </head>
 <body>
   <div class="main">
-      <div class="div1" style="background-image: url('https://drive.google.com/uc?id=1-7NyaG7N2-nu0WgTO5ZXcfWFKvACOjYb'); vertical-align: middle; text-align: center; ">
+      <div class="div1">
         <table width="100%">
           <tr>
             <td width="20%"></td>
             <td width="60%" style="text-align: center;">
-              <h1 style="line-height: 80px; margin: 0;">NEWS</h1>
+              <h1>NEWS</h1>
             </td>
             <td class="x" width="30%" style="text-align: center;">
               <p>The best content for you (x)</p>
@@ -117,7 +208,7 @@
           </tr>
         </table>
       </div>
-      <div class="div2" id="div2" style="text-align: center; ">
+      <div class="div2" id="div2">
         <h2>Menu</h2>
         <h3>MAIN</h3>
         <h3>World News<br></h3>
@@ -125,20 +216,20 @@
         <h3>Personality Test<br><br></h3>
         <p>Left-alignment for:<br></p>
 
-        <div style="line-height: 30px; font-size: 1.2em;">
-          <label>
+        <div style="line-height: 30px;">
+          <label class="radioButtons">
             <input type="radio" id="1" name="radios" value="1" checked />
             None<br>
           </label>
-          <label>
+          <label class="radioButtons">
             <input type="radio" id="2" name="radios" value="2" />
             Menu<br>
           </label>
-          <label>
-            <input type="radio" id="3" name="radios" value="3" />
+          <label class="radioButtons">
+            <input type="radio" id="3" name="radios" value="3"/>
             Newsbox Picasso<br>
           </label>
-          <label>
+          <label class="radioButtons">
             <input type="radio" id="4" name="radios" value="4" />
             Human image<br><br>
           </label>
@@ -150,7 +241,7 @@
 
       </div>
 
-      <div class="div3" id="div3" style="text-align: center; ">
+      <div class="div3" id="div3">
         <p>
           <br />
           A Picasso masterpiece entitled “Femme à la montre” is expected to fetch more than $120 million when
@@ -191,7 +282,7 @@
 
       </div>
 
-        <div class="div4" id="div4" style="text-align: center;">
+        <div class="div4" id="div4">
           <img src="https://drive.google.com/uc?id=17Y-wCGKF6W2p_0Qe7wC8wXzdvnms7KIi" width="350" height="600" />
         </div>
 
@@ -226,6 +317,7 @@
 
         </div>
       </div>
+
   <script>
 
     // 1. -------------------------------------------------
